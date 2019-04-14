@@ -11,6 +11,7 @@ const Menu = props => {
             <Link to={link.link}>{link.name}</Link>
           </li>
         ))}
+        
       </ul>
     </div>
   );

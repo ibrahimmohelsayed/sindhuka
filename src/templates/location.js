@@ -2,17 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../layouts/index';
 
-const Testimonial = ({ data }) => {
+const Location = ({ data }) => {
   const { markdownRemark } = data;
   const { title } = markdownRemark.frontmatter;
   const { html } = markdownRemark;
   return (
-    <Layout bodyClass="page-testimonial">
+    <Layout bodyClass="page-location">
       <div className="strip strip-white strip-diagonal">
         <div className="container pt-4 pt-md-10">
           <div className="row justify-content-start">
             <div className="col-12 col-md-8">
-              <div className="testimonial testimonial-single">
+              <div className="location location-single">
                 <h1 className="title">{title}</h1>
                 <div
                   className="content"
@@ -39,4 +39,4 @@ export const query = graphql`
   }
 `;
 
-export default Testimonial;
+export default Location;

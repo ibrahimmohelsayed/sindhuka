@@ -27,11 +27,11 @@ const Home = props => {
             vegetables, fruits and herbal plants producers aligned with
             sustainable and environmentally friendly production models.
           </p>
-            <div className="call-box-bottom mt-4">
-              <a href="#services" className="button">
-                Find out more
-              </a>
-            </div>
+          <div className="call-box-bottom mt-4">
+            <a href="#services" className="button">
+              Find out more
+            </a>
+          </div>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ const Home = props => {
               <div className="feature">
                 {edge.node.image && (
                   <div className="feature-image">
-                    <img src={withPrefix(edge.node.image)} />
+                    <img src={withPrefix(edge.node.image)} alt="Featured" />
                   </div>
                 )}
                 <h2 className="feature-title">{edge.node.title}</h2>

@@ -12,16 +12,12 @@ module.exports = {
     },
     menuLinks: [
       {
-        name: 'Services',
-        link: '/services',
+        name: 'Get started',
+        link: '/get-started',
       },
       {
-        name: 'Team',
-        link: '/team',
-      },
-      {
-        name: 'Testimonials',
-        link: '/testimonials',
+        name: 'Locations',
+        link: '/locations',
       },
       {
         name: 'Contact',
@@ -32,7 +28,12 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-transformer-json',
-    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: ['gatsby-remark-copy-linked-files'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',

@@ -1,16 +1,16 @@
-.testimonial {
+.location {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
-  .testimonials-image {
+  .locations-image {
     flex: 0;
     margin-right: 10px;
     img {
       width: 160px;
     }
   }
-  .testimonials-meta {
+  .locations-meta {
     flex: 1;
     margin-bottom: 10px;
     p {
@@ -19,19 +19,19 @@
     a {
     }
   }
-  .testimonials-title {
+  .locations-title {
     margin-bottom: 5px;
   }
-  .testimonials-name {
+  .locations-name {
     font-weight: bold;
     display: inline-block;
     margin-right: 10px;
   }
-  .testimonials-jobtitle {
+  .locations-jobtitle {
     display: inline-block;
     color: $secondary;
   }
-  .testimonials-content {
+  .locations-content {
     flex: 1 0 100%;
 
     blockquote {

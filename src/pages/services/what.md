@@ -1,0 +1,15 @@
+---
+path: '/services/what'
+title: 'What is Sindhuka?'
+date: 2018-11-28T15:15:34+10:00
+image: '/services/default.png'
+featured: true
+draft: false
+---
+
+SINDHUKA is looking for local responsible farmers producing vegetables, fruits and herbal plants’ in a
+sustainable and environment-friendly way. We promote a series of safe cultivation practices to respond to
+the effects of climate change, minimizing the use of chemicals fertilizers and pesticides and using only local
+varieties and eco-types. Our main goal here is to create a network of small-scale farmers in which all
+together we can better market our products while promoting local food traditions.
+

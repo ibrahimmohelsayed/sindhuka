@@ -8,8 +8,8 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           query {
-            services: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/services/" } }
+            getstarted: allMarkdownRemark(
+              filter: { fileAbsolutePath: { regex: "/get-started/" } }
               sort: { fields: [frontmatter___date], order: DESC }
             ) {
               edges {
@@ -24,24 +24,8 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            team: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/team/" } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  id
-                  frontmatter {
-                    path
-                    title
-                    date(formatString: "DD MMMM YYYY")
-                  }
-                  excerpt
-                }
-              }
-            }
-            testimonials: allMarkdownRemark(
-              filter: { fileAbsolutePath: { regex: "/testimonials/" } }
+            locations: allMarkdownRemark(
+              filter: { fileAbsolutePath: { regex: "/locations/" } }
               sort: { fields: [frontmatter___date], order: DESC }
             ) {
               edges {
@@ -69,18 +53,8 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
-        result.data.team.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/team.js');
-          createPage({
-            path: node.frontmatter.path,
-            component,
-            context: {
-              id: node.id,
-            },
-          });
-        });
-        result.data.testimonials.edges.forEach(({ node }) => {
-          const component = path.resolve('src/templates/testimonial.js');
+        result.data.locations.edges.forEach(({ node }) => {
+          const component = path.resolve('src/templates/location.js');
           createPage({
             path: node.frontmatter.path,
             component,
