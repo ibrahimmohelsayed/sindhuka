@@ -4,8 +4,8 @@ import Layout from '../layouts/index';
 
 const Testimonial = ({ data }) => {
   const { markdownRemark } = data;
-  const title = markdownRemark.frontmatter.title;
-  const html = markdownRemark.html;
+  const { title } = markdownRemark.frontmatter;
+  const { html } = markdownRemark;
   return (
     <Layout bodyClass="page-testimonial">
       <div className="strip strip-white strip-diagonal">
@@ -14,7 +14,10 @@ const Testimonial = ({ data }) => {
             <div className="col-12 col-md-8">
               <div className="testimonial testimonial-single">
                 <h1 className="title">{title}</h1>
-                <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+                <div
+                  className="content"
+                  dangerouslySetInnerHTML={{ __html: html }}
+                />
               </div>
             </div>
           </div>

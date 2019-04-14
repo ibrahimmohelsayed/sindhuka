@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../layouts/index';
 
-const Team = (props) => {
+const Team = props => {
   const teams = props.data.allMarkdownRemark.edges;
   return (
     <Layout bodyClass="page-teams">
@@ -14,8 +14,8 @@ const Team = (props) => {
             <div className="col-12">
               <h1>Meet The Team</h1>
               <p>
-                Our team of qualified accountants and financial consultants can help your business
-                at any stage of it’s growth.
+                Our team of qualified accountants and financial consultants can
+                help your business at any stage of it’s growth.
               </p>
             </div>
           </div>
@@ -25,7 +25,10 @@ const Team = (props) => {
       <div className="container pb-6">
         <div className="row">
           {teams.map(edge => (
-            <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
+            <div
+              key={edge.node.frontmatter.path}
+              className="col-12 col-md-6 mb-1"
+            >
               <div className="team card-two">
                 <div className="card-header">
                   <div className="card-header-left">
@@ -40,18 +43,25 @@ const Team = (props) => {
                     )}
                   </div>
                   <div className="card-right">
-                    <h2 className="card-title">{edge.node.frontmatter.title}</h2>
+                    <h2 className="card-title">
+                      {edge.node.frontmatter.title}
+                    </h2>
                     <ul className="card-meta">
                       <li>
                         <strong>{edge.node.frontmatter.jobtitle}</strong>
                       </li>
                       <li>
-                        <a target="_blank" href={edge.node.frontmatter.linkedinurl}>
+                        <a
+                          target="_blank"
+                          href={edge.node.frontmatter.linkedinurl}
+                        >
                           {edge.node.frontmatter.linkedinurl}
                         </a>
                       </li>
                       <li>
-                        <a href={edge.node.frontmatter.email}>{edge.node.frontmatter.email}</a>
+                        <a href={edge.node.frontmatter.email}>
+                          {edge.node.frontmatter.email}
+                        </a>
                       </li>
                     </ul>
                   </div>

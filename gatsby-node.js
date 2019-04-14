@@ -57,8 +57,8 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-        `,
-      ).then((result) => {
+        `
+      ).then(result => {
         result.data.services.edges.forEach(({ node }) => {
           const component = path.resolve('src/templates/service.js');
           createPage({
@@ -90,7 +90,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         resolve();
-      }),
+      })
     );
   });
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
 
-const Menu = (props) => {
+const Menu = props => {
   const { menuLinks } = props.data.site.siteMetadata;
   return (
     <div id="main-menu" className="main-menu">

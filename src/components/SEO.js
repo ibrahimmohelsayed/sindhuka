@@ -6,7 +6,7 @@ import favicon from '../../static/favicon.png';
 const SEO = props => (
   <StaticQuery
     query={detailsQuery}
-    render={(data) => {
+    render={data => {
       const title = props.title || data.site.siteMetadata.title;
       return (
         <Helmet

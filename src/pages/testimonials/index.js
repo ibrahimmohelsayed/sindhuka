@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import SEO from '../../components/SEO';
 import Layout from '../../layouts/index';
 
-const Testimonials = (props) => {
+const Testimonials = props => {
   const testimonials = props.data.allMarkdownRemark.edges;
   return (
     <Layout bodyClass="page-testimonials">
@@ -21,12 +21,21 @@ const Testimonials = (props) => {
       <div className="container pb-6">
         <div className="row">
           {testimonials.map(edge => (
-            <div key={edge.node.frontmatter.path} className="col-12 col-md-6 mb-1">
+            <div
+              key={edge.node.frontmatter.path}
+              className="col-12 col-md-6 mb-1"
+            >
               <div className="testimonial">
                 <div className="testimonials-meta">
-                  <h2 className="testimonials-title">{edge.node.frontmatter.title}</h2>
-                  <p className="testimonials-name">{edge.node.frontmatter.name}</p>
-                  <p className="testimonials-jobtitle">{edge.node.frontmatter.jobtitle}</p>
+                  <h2 className="testimonials-title">
+                    {edge.node.frontmatter.title}
+                  </h2>
+                  <p className="testimonials-name">
+                    {edge.node.frontmatter.name}
+                  </p>
+                  <p className="testimonials-jobtitle">
+                    {edge.node.frontmatter.jobtitle}
+                  </p>
                 </div>
                 <div
                   className="testimonials-content"
