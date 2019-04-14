@@ -46,7 +46,7 @@ const Services = props => {
 export const query = graphql`
   query ServicesQuery {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/services/" } }
+      filter: { fileAbsolutePath: { regex: "/get-started/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

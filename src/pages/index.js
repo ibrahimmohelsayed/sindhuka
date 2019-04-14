@@ -45,7 +45,7 @@ const Home = props => {
       <div id="services" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-3">Our Services</h2>
+            <h2 className="title-3 text-dark mb-3">Get Started</h2>
           </div>
           {markdown.map(edge => (
             <div
@@ -64,11 +64,11 @@ const Home = props => {
               </div>
             </div>
           ))}
-          <div className="col-12 text-center">
-            <Link className="button button-primary mt-2" to="/services">
+          {/* <div className="col-12 text-center">
+            <Link className="button button-primary mt-2" to="/get-started">
               View All Services
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -99,7 +99,7 @@ const Home = props => {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/services/" } }
+      filter: { fileAbsolutePath: { regex: "/get-started/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

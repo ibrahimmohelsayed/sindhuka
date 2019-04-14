@@ -9,7 +9,7 @@ const Call = props => (
         {props.data.site.siteMetadata.contact.phone}
       </div>
       <div className="call-email">
-        <strong>Email: </strong>
+        <strong>Name: </strong>
         <a href={`mailto:${props.data.site.siteMetadata.contact.email}`}>
           {props.data.site.siteMetadata.contact.email}
         </a>

@@ -7,8 +7,8 @@ module.exports = {
     Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
     sustainable and environmentally friendly production models.`,
     contact: {
-      phone: 'XXX XXX XXX',
-      email: 'zerostaticthemes@gmail.com',
+      phone: '9 841 506 201',
+      email: 'Sanjeev Dhakal',
     },
     menuLinks: [
       {
