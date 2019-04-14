@@ -14,25 +14,35 @@ const Home = props => {
       <Helmet>
         <meta
           name="description"
-          content="Small Business Theme. Multiple content types using Markdown and JSON sources. Responsive design and SCSS. This is a beautiful and artfully designed starting theme."
+          content="Join SINDHUKA’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
+          sustainable and environmentally friendly production models."
         />
       </Helmet>
       <div className="intro pb-4">
         <div className="container">
-          <h1>Serif - Gatsby Small Business Theme.</h1>
+          <h1>Sindhuka - The sustainable farmers' network</h1>
           <p>
-            Multiple content types using Markdown and JSON sources. Responsive
-            design and SCSS. This is a beautiful and artfully designed starting
-            theme.
+            Join SINDHUKA: an added value for your business, a concrete support
+            to local economy. Sindhuka is a trademark which connects local
+            vegetables, fruits and herbal plants producers aligned with
+            sustainable and environmentally friendly production models.
           </p>
+            <div className="call-box-bottom mt-4">
+              <a href="#services" className="button">
+                Find out more
+              </a>
+            </div>
         </div>
       </div>
 
-      <div className="container pt-2">
+      {/* <div className="container pt-2">
         <Call button />
       </div>
+      <div className="container pt-2">
+        <Call button />
+      </div> */}
 
-      <div className="container pt-8 pt-md-10">
+      <div id="services" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Our Services</h2>
