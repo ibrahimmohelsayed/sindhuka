@@ -10,21 +10,15 @@ const SubFooter = props => (
             <ul>
               <li>
                 <strong>Phone: </strong>
-                {props.data.site.siteMetadata.contact.phone}
+                sdsdsd
               </li>
               <li>
-                <strong>Email: </strong>{' '}
-                <a
-                  href={`mailto:${props.data.site.siteMetadata.contact.email}`}
-                >
-                  {props.data.site.siteMetadata.contact.email}
-                </a>
+                <strong>Email: </strong>
+                sss
               </li>
             </ul>
             <ul>
-              <li>
-                <a href="https://www.zerostatic.io">www.zerostatic.io</a>
-              </li>
+              <li>sss</li>
             </ul>
           </div>
         </div>
@@ -33,20 +27,4 @@ const SubFooter = props => (
   </div>
 );
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            contact {
-              email
-              phone
-            }
-          }
-        }
-      }
-    `}
-    render={data => <SubFooter data={data} />}
-  />
-);
+export default SubFooter;
