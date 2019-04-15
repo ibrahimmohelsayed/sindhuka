@@ -28,7 +28,7 @@ const Home = props => {
             sustainable and environmentally friendly production models.
           </p>
           <div className="call-box-bottom mt-4">
-            <a href="#services" className="button">
+            <a href="#get-started" className="button">
               Find out more
             </a>
           </div>
@@ -42,40 +42,52 @@ const Home = props => {
         <Call button />
       </div> */}
 
-      <div id="services" className="container pt-8 pt-md-10">
+      <div id="get-started" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Get Started</h2>
           </div>
           {markdown.map(edge => (
-            <div
-              key={edge.node.frontmatter.path}
-              className="col-12 col-md-4 mb-1"
-            >
-              <div className="card service service-teaser">
-                <div className="card-content">
-                  <h2>
-                    <Link to={edge.node.frontmatter.path}>
-                      {edge.node.frontmatter.title}
-                    </Link>
-                  </h2>
-                  <p>{edge.node.excerpt}</p>
+            <>
+              <div
+                key={edge.node.frontmatter.path}
+                className="col-12 col-md-4 mb-1"
+              >
+                <div className="card service service-teaser">
+                  <div className="card-content">
+                    <h2>
+                      <Link to={edge.node.frontmatter.path}>
+                        {edge.node.frontmatter.title}
+                      </Link>
+                    </h2>
+                    <p>{edge.node.excerpt}</p>
+                  </div>
+                </div>
+              </div>
+            </>
+          ))}
+          {markdown.map(edge => (
+            <div className="container pt-4 pt-md-10">
+              <div className="row justify-content-start">
+                <div className="col-12 col-md-8">
+                  <div className="service service-single">
+                    <h1 className="title">{edge.node.frontmatter.title}</h1>
+                    <div
+                      className="content"
+                      dangerouslySetInnerHTML={{ __html: edge.node.html }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           ))}
-          {/* <div className="col-12 text-center">
-            <Link className="button button-primary mt-2" to="/get-started">
-              View All Services
-            </Link>
-          </div> */}
         </div>
       </div>
 
-      <div className="container pt-5 pb-5 pt-md-7 pb-md-7">
+      <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-4">Our Features</h2>
+            <h2 className="title-3 text-dark mb-4">Locations</h2>
           </div>
           {json.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-6 col-lg-4 mb-2">
@@ -85,8 +97,8 @@ const Home = props => {
                     <img src={withPrefix(edge.node.image)} alt="Featured" />
                   </div>
                 )}
-                <h2 className="feature-title">{edge.node.title}</h2>
-                <div className="feature-content">{edge.node.description}</div>
+                <h2 className="feature-title">{edge.node.district}</h2>
+                <div className="feature-content">{edge.node.location}</div>
               </div>
             </div>
           ))}
@@ -111,15 +123,17 @@ export const query = graphql`
             date(formatString: "DD MMMM YYYY")
           }
           excerpt
+          html
         }
       }
     }
     allFeaturesJson {
       edges {
         node {
-          id
-          title
-          description
+          district
+          location
+          cooperative
+          coordenates
           image
         }
       }
