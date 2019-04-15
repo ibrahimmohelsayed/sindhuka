@@ -6,13 +6,11 @@ const Call = props => (
     <div className="call-box-top">
       <div className="call-phone">
         <strong>Phone: </strong>
-        {props.data.site.siteMetadata.contact.phone}
+        <a href={`tel:${props.phone}`}>{props.phone}</a>
       </div>
       <div className="call-email">
         <strong>Name: </strong>
-        <a href={`mailto:${props.data.site.siteMetadata.contact.email}`}>
-          {props.data.site.siteMetadata.contact.email}
-        </a>
+        {props.name}
       </div>
     </div>
     {props.button && (
@@ -25,22 +23,5 @@ const Call = props => (
   </div>
 );
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            contact {
-              email
-              phone
-            }
-          }
-        }
-      }
-    `}
-    render={data => <Call button={props.button} data={data} />}
-  />
-);
+export default Call;
+
