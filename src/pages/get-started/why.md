@@ -1,5 +1,5 @@
 ---
-path: '/services/why'
+path: '/why'
 title: 'Why was the Sindhuka trademark created?'
 date: 2019-11-18T12:33:46+10:00
 image: 'services/noun_591323.png'

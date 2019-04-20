@@ -1,5 +1,5 @@
 ---
-path: '/services/what'
+path: '/what'
 title: 'What is Sindhuka?'
 date: 2020-11-28T15:15:34+10:00
 image: '/services/default.png'
