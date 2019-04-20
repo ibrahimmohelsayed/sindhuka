@@ -56,7 +56,7 @@ const Home = props => {
                 <div className="card service service-teaser">
                   <div className="card-content">
                     <h2>
-                      <Link to={edge.node.frontmatter.path}>
+                      <Link to={`/#${edge.node.frontmatter.path}`}>
                         {edge.node.frontmatter.title}
                       </Link>
                     </h2>
@@ -70,7 +70,10 @@ const Home = props => {
             <div className="container pt-4 pt-md-10">
               <div className="row justify-content-start">
                 <div className="col-12 col-md-8">
-                  <div className="service service-single">
+                  <div
+                    id={edge.node.frontmatter.path}
+                    className="service service-single"
+                  >
                     <h1 className="title">{edge.node.frontmatter.title}</h1>
                     <div
                       className="content"
