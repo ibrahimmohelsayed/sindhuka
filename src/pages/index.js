@@ -28,9 +28,9 @@ const Home = props => {
             sustainable and environmentally friendly production models.
           </p>
           <div className="call-box-bottom mt-4">
-            <a href="#get-started" className="button">
+            <Link to="#get-started" className="button">
               Find out more
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@ const Home = props => {
             <>
               <div
                 key={edge.node.frontmatter.path}
-                className="col-12 col-md-4 mb-1"
+                className="col-12 col-md-4 mb-5"
               >
                 <div className="card service service-teaser">
                   <div className="card-content">
@@ -61,6 +61,9 @@ const Home = props => {
                       </Link>
                     </h2>
                     <p>{edge.node.excerpt}</p>
+                    <Link to={`/#${edge.node.frontmatter.path}`}>
+                      Read more →
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -98,6 +101,7 @@ const Home = props => {
                 {edge.node.mapLink && (
                   <div className="feature-image">
                     <iframe
+                      title={edge.node.location}
                       src={edge.node.mapLink}
                       width="100%"
                       height="100%"
