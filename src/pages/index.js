@@ -95,13 +95,19 @@ const Home = props => {
           {json.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-6 col-lg-4 mb-2">
               <div className="feature">
-                {edge.node.image && (
+                {edge.node.mapLink && (
                   <div className="feature-image">
-                    <img src={withPrefix(edge.node.image)} alt="Featured" />
+                    <iframe
+                      src={edge.node.mapLink}
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
                   </div>
                 )}
-                <h2 className="feature-title">{edge.node.district}</h2>
-                <div className="feature-content">{edge.node.location}</div>
+                <h2 className="feature-title">{edge.node.location}</h2>
+                <div className="feature-content">{edge.node.district}</div>
               </div>
             </div>
           ))}
@@ -135,9 +141,7 @@ export const query = graphql`
         node {
           district
           location
-          cooperative
-          coordenates
-          image
+          mapLink
         }
       }
     }
