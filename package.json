@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-serif-theme",
+  "name": "sindhuka",
   "version": "1.0.0",
-  "author": "Robert Austin <rob@jugglerdigital.com>",
+  "author": "Pol Milian <pol.milian.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
