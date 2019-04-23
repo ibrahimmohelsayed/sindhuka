@@ -2,7 +2,6 @@
 path: '/why'
 title: 'Why was the Sindhuka trademark created?'
 date: 2019-11-18T12:33:46+10:00
-image: 'services/noun_591323.png'
 ---
 
 To provide local producers with a unique, recognizable and environment-friendly brand designed to open

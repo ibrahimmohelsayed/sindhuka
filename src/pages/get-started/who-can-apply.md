@@ -2,9 +2,6 @@
 path: '/who-can-apply'
 title: "Who can apply to get the trademark? "
 date: 2017-11-28T15:14:54+10:00
-image: "/services/default.png"
-featured: true
-draft: false
 ---
 
 - Agriculture Cooperatives

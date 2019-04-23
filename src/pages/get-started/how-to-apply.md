@@ -2,8 +2,6 @@
 path: '/how-to-apply'
 title: 'How can I apply?'
 date: 2016-11-28T15:14:39+10:00
-image: '/services/default.png'
-featured: true
 ---
 
 1. Submit your application to Fulbari Cooperative
