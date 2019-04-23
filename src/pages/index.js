@@ -7,8 +7,7 @@ import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
 import useTranslations from '../components/useTranslations';
 
-const Index = ({ data: { allMdx } }) => {
-  // const json = props.data.allFeaturesJson.edges;
+const Index = ({ data: { allMdx, allFeaturesJson } }) => {
   const { hello } = useTranslations();
   return (
     <>
@@ -41,34 +40,37 @@ const Index = ({ data: { allMdx } }) => {
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Get Started</h2>
           </div>
-          {/* {markdown.map(edge => (
+          {allMdx.edges.map(({ node: post }) => (
             <>
               <div
-                key={edge.node.frontmatter.path}
+                key={`${post.frontmatter.title}-${post.fields.locale}`}
                 className="col-12 col-md-4 mb-5"
               >
                 <div className="card service service-teaser">
                   <div className="card-content">
                     <h2>
-                      <Link to={`/#${edge.node.frontmatter.path}`}>
-                        {edge.node.frontmatter.title}
-                      </Link>
+                      <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
+                        {post.frontmatter.title}
+                      </LocalizedLink>
                     </h2>
-                    <p>{edge.node.excerpt}</p>
-                    <Link to={`/#${edge.node.frontmatter.path}`}>
+                    <p>{post.excerpt}</p>
+                    <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
                       Read more →
-                    </Link>
+                    </LocalizedLink>
                   </div>
                 </div>
               </div>
             </>
-          ))} */}
-          {/* {allMdx.edges.map(({ node: post }) => (
-            <div className="container pt-4 pt-md-10">
+          ))}
+          {allMdx.edges.map(({ node: post }) => (
+            <div
+              key={`${post.frontmatter.title}-${post.fields.locale}`}
+              className="container pt-4 pt-md-10"
+            >
               <div className="row justify-content-start">
                 <div className="col-12 col-md-8">
                   <div
-                    id={post.frontmatter.title}
+                    id={post.parent.relativeDirectory}
                     className="service service-single"
                   >
                     <h1 className="title">{post.frontmatter.title}</h1>
@@ -84,26 +86,16 @@ const Index = ({ data: { allMdx } }) => {
                 </div>
               </div>
             </div>
-          ))} */}
-          <ul className="post-list">
-            {allMdx.edges.map(({ node: post }) => (
-              <li key={`${post.frontmatter.title}-${post.fields.locale}`}>
-                <LocalizedLink to={`/${post.parent.relativeDirectory}`}>
-                  {post.frontmatter.title}
-                </LocalizedLink>
-                <div>{post.frontmatter.date}</div>
-              </li>
-            ))}
-          </ul>
+          ))}
         </div>
       </div>
 
-      {/* <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
+      <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
         <div className="row justify-content-center">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-4">Locations</h2>
           </div>
-          {json.map(edge => (
+          {allFeaturesJson.edges.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-6 col-lg-4 mb-2">
               <div className="feature">
                 {edge.node.mapLink && (
@@ -124,7 +116,7 @@ const Index = ({ data: { allMdx } }) => {
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
     </>
   );
 };
@@ -141,6 +133,10 @@ export const query = graphql`
             title
             date(formatString: $dateFormat)
           }
+          excerpt
+          code {
+            body
+          }
           fields {
             locale
           }
@@ -149,6 +145,15 @@ export const query = graphql`
               relativeDirectory
             }
           }
+        }
+      }
+    }
+    allFeaturesJson {
+      edges {
+        node {
+          district
+          location
+          mapLink
         }
       }
     }
