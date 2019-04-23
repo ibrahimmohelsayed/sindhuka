@@ -29,9 +29,9 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
             sustainable and environmentally friendly production models.
           </p>
           <div className="call-box-bottom mt-4">
-            <Link to="#get-started" className="button">
+            <LocalizedLink to="/#get-started" className="button">
               Find out more
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </div>
