@@ -1,10 +1,9 @@
 import React from 'react';
 import SEO from '../../components/SEO';
-import Layout from '../../layouts/index';
 import Call from '../../components/Call';
 
 const Contact = props => (
-  <Layout bodyClass="page-contact">
+  <>
     <SEO title="Contact" />
     <div className="intro intro-small">
       <div className="container">
@@ -26,7 +25,7 @@ const Contact = props => (
         </div>
       </div>
     </div>
-  </Layout>
+  </>
 );
 
 export default Contact;

@@ -23,6 +23,7 @@ module.exports = {
     ],
   },
   plugins: [
+    `gatsby-mdx`,
     'gatsby-plugin-sass',
     'gatsby-transformer-json',
     {
@@ -37,6 +38,20 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/blog`,
+        name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/config/translations`,
+        name: `translations`,
       },
     },
     {

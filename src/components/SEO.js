@@ -19,10 +19,25 @@ const SEO = props => (
           title={title}
           titleTemplate={`%s - ${data.site.siteMetadata.title}`}
           link={[
-            { rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png', href: `${faviconApple}` },
-            { rel: 'icon', sizes: '32x32', type: 'image/png', href: `${favicon32}` },
-            { rel: 'icon', sizes: '16x16', type: 'image/png', href: `${favicon16}` },
-            { rel: 'mask-icon', color: "#5bbad5", href: `${faviconSafari}` }
+            {
+              rel: 'apple-touch-icon',
+              sizes: '180x180',
+              type: 'image/png',
+              href: `${faviconApple}`,
+            },
+            {
+              rel: 'icon',
+              sizes: '32x32',
+              type: 'image/png',
+              href: `${favicon32}`,
+            },
+            {
+              rel: 'icon',
+              sizes: '16x16',
+              type: 'image/png',
+              href: `${favicon16}`,
+            },
+            { rel: 'mask-icon', color: '#5bbad5', href: `${faviconSafari}` },
           ]}
         />
       );

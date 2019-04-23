@@ -1,15 +1,17 @@
 import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import MdxLink from '../components/MDXLink';
+import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
-import Layout from '../layouts/index';
-import Call from '../components/Call';
+import useTranslations from '../components/useTranslations';
 
-const Home = props => {
-  const markdown = props.data.allMarkdownRemark.edges;
-  const json = props.data.allFeaturesJson.edges;
+const Index = ({ data: { allMdx } }) => {
+  // const json = props.data.allFeaturesJson.edges;
+  const { hello } = useTranslations();
   return (
-    <Layout bodyClass="page-home">
+    <>
       <SEO title="Home" />
       <Helmet>
         <meta
@@ -20,7 +22,7 @@ const Home = props => {
       </Helmet>
       <div className="intro pb-4">
         <div className="container">
-          <h1>Sindhuka - The sustainable farmers' network</h1>
+          <h1>{hello}</h1>
           <p>
             Join SINDHUKA: an added value for your business, a concrete support
             to local economy. Sindhuka is a trademark which connects local
@@ -34,20 +36,12 @@ const Home = props => {
           </div>
         </div>
       </div>
-
-      {/* <div className="container pt-2">
-        <Call button />
-      </div>
-      <div className="container pt-2">
-        <Call button />
-      </div> */}
-
       <div id="get-started" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Get Started</h2>
           </div>
-          {markdown.map(edge => (
+          {/* {markdown.map(edge => (
             <>
               <div
                 key={edge.node.frontmatter.path}
@@ -68,29 +62,43 @@ const Home = props => {
                 </div>
               </div>
             </>
-          ))}
-          {markdown.map(edge => (
+          ))} */}
+          {/* {allMdx.edges.map(({ node: post }) => (
             <div className="container pt-4 pt-md-10">
               <div className="row justify-content-start">
                 <div className="col-12 col-md-8">
                   <div
-                    id={edge.node.frontmatter.path}
+                    id={post.frontmatter.title}
                     className="service service-single"
                   >
-                    <h1 className="title">{edge.node.frontmatter.title}</h1>
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{ __html: edge.node.html }}
-                    />
+                    <h1 className="title">{post.frontmatter.title}</h1>
+
+                    <MDXRenderer
+                      components={{
+                        a: MdxLink,
+                      }}
+                    >
+                      {post.code.body}
+                    </MDXRenderer>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
+          <ul className="post-list">
+            {allMdx.edges.map(({ node: post }) => (
+              <li key={`${post.frontmatter.title}-${post.fields.locale}`}>
+                <LocalizedLink to={`/${post.parent.relativeDirectory}`}>
+                  {post.frontmatter.title}
+                </LocalizedLink>
+                <div>{post.frontmatter.date}</div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
+      {/* <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
         <div className="row justify-content-center">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-4">Locations</h2>
@@ -116,40 +124,35 @@ const Home = props => {
             </div>
           ))}
         </div>
-      </div>
-    </Layout>
+      </div> */}
+    </>
   );
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/get-started/" } }
+  query Index($locale: String!, $dateFormat: String!) {
+    allMdx(
+      filter: { fields: { locale: { eq: $locale } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
-          id
           frontmatter {
-            path
             title
-            date(formatString: "DD MMMM YYYY")
+            date(formatString: $dateFormat)
           }
-          excerpt
-          html
-        }
-      }
-    }
-    allFeaturesJson {
-      edges {
-        node {
-          district
-          location
-          mapLink
+          fields {
+            locale
+          }
+          parent {
+            ... on File {
+              relativeDirectory
+            }
+          }
         }
       }
     }
   }
 `;
 
-export default Home;
+export default Index;
