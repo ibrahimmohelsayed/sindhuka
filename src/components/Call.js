@@ -24,4 +24,3 @@ const Call = props => (
 );
 
 export default Call;
-

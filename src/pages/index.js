@@ -1,15 +1,16 @@
 import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import MdxLink from '../components/MDXLink';
+import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
-import Layout from '../layouts/index';
-import Call from '../components/Call';
+import useTranslations from '../components/useTranslations';
 
-const Home = props => {
-  const markdown = props.data.allMarkdownRemark.edges;
-  const json = props.data.allFeaturesJson.edges;
+const Index = ({ data: { allMdx, allFeaturesJson } }) => {
+  const { hello } = useTranslations();
   return (
-    <Layout bodyClass="page-home">
+    <>
       <SEO title="Home" />
       <Helmet>
         <meta
@@ -20,7 +21,7 @@ const Home = props => {
       </Helmet>
       <div className="intro pb-4">
         <div className="container">
-          <h1>Sindhuka - The sustainable farmers' network</h1>
+          <h1>{hello}</h1>
           <p>
             Join SINDHUKA: an added value for your business, a concrete support
             to local economy. Sindhuka is a trademark which connects local
@@ -28,60 +29,59 @@ const Home = props => {
             sustainable and environmentally friendly production models.
           </p>
           <div className="call-box-bottom mt-4">
-            <Link to="#get-started" className="button">
+            <LocalizedLink to="/#get-started" className="button">
               Find out more
-            </Link>
+            </LocalizedLink>
           </div>
         </div>
       </div>
-
-      {/* <div className="container pt-2">
-        <Call button />
-      </div>
-      <div className="container pt-2">
-        <Call button />
-      </div> */}
-
       <div id="get-started" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
             <h2 className="title-3 text-dark mb-3">Get Started</h2>
           </div>
-          {markdown.map(edge => (
+          {allMdx.edges.map(({ node: post }) => (
             <>
               <div
-                key={edge.node.frontmatter.path}
+                key={`${post.frontmatter.title}-${post.fields.locale}`}
                 className="col-12 col-md-4 mb-5"
               >
                 <div className="card service service-teaser">
                   <div className="card-content">
                     <h2>
-                      <Link to={`/#${edge.node.frontmatter.path}`}>
-                        {edge.node.frontmatter.title}
-                      </Link>
+                      <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
+                        {post.frontmatter.title}
+                      </LocalizedLink>
                     </h2>
-                    <p>{edge.node.excerpt}</p>
-                    <Link to={`/#${edge.node.frontmatter.path}`}>
+                    <p>{post.excerpt}</p>
+                    <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
                       Read more →
-                    </Link>
+                    </LocalizedLink>
                   </div>
                 </div>
               </div>
             </>
           ))}
-          {markdown.map(edge => (
-            <div className="container pt-4 pt-md-10">
+          {allMdx.edges.map(({ node: post }) => (
+            <div
+              key={`${post.frontmatter.title}-${post.fields.locale}`}
+              className="container pt-4 pt-md-10"
+            >
               <div className="row justify-content-start">
                 <div className="col-12 col-md-8">
                   <div
-                    id={edge.node.frontmatter.path}
+                    id={post.parent.relativeDirectory}
                     className="service service-single"
                   >
-                    <h1 className="title">{edge.node.frontmatter.title}</h1>
-                    <div
-                      className="content"
-                      dangerouslySetInnerHTML={{ __html: edge.node.html }}
-                    />
+                    <h1 className="title">{post.frontmatter.title}</h1>
+
+                    <MDXRenderer
+                      components={{
+                        a: MdxLink,
+                      }}
+                    >
+                      {post.code.body}
+                    </MDXRenderer>
                   </div>
                 </div>
               </div>
@@ -95,7 +95,7 @@ const Home = props => {
           <div className="col-12">
             <h2 className="title-3 text-dark mb-4">Locations</h2>
           </div>
-          {json.map(edge => (
+          {allFeaturesJson.edges.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-6 col-lg-4 mb-2">
               <div className="feature">
                 {edge.node.mapLink && (
@@ -117,26 +117,34 @@ const Home = props => {
           ))}
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/get-started/" } }
+  query Index($locale: String!, $dateFormat: String!) {
+    allMdx(
+      filter: { fields: { locale: { eq: $locale } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
         node {
-          id
           frontmatter {
-            path
             title
-            date(formatString: "DD MMMM YYYY")
+            date(formatString: $dateFormat)
           }
           excerpt
-          html
+          code {
+            body
+          }
+          fields {
+            locale
+          }
+          parent {
+            ... on File {
+              relativeDirectory
+            }
+          }
         }
       }
     }
@@ -152,4 +160,4 @@ export const query = graphql`
   }
 `;
 
-export default Home;
+export default Index;
