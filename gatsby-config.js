@@ -6,21 +6,6 @@ module.exports = {
     description: `Join SINDHUKA’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. 
     Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
     sustainable and environmentally friendly production models.`,
-
-    menuLinks: [
-      {
-        name: 'Get started',
-        link: '/#get-started',
-      },
-      {
-        name: 'Locations',
-        link: '/#locations',
-      },
-      {
-        name: 'Contact',
-        link: '/contact',
-      },
-    ],
   },
   plugins: [
     `gatsby-mdx`,

@@ -1,8 +1,24 @@
 import React from 'react';
 import { graphql, StaticQuery, Link } from 'gatsby';
+import LocalizedLink from './LocalizedLink';
+import useTranslations from './useTranslations';
 
 const MenuMobile = props => {
-  const { menuLinks } = props.data.site.siteMetadata;
+  const { home, locations, contact } = useTranslations();
+  const menuLinks = [
+    {
+      name: `${home}`,
+      link: '/#get-started',
+    },
+    {
+      name: `${locations}`,
+      link: '/#locations',
+    },
+    {
+      name: `${contact}`,
+      link: '/contact',
+    },
+  ];
   return (
     <div
       id="main-menu-mobile"
@@ -11,7 +27,7 @@ const MenuMobile = props => {
       <ul>
         {menuLinks.map(link => (
           <li key={link.name}>
-            <Link to={link.link}>{link.name}</Link>
+            <LocalizedLink to={link.link}>{link.name}</LocalizedLink>
           </li>
         ))}
       </ul>
@@ -19,20 +35,4 @@ const MenuMobile = props => {
   );
 };
 
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query MenuMobileQuery {
-        site {
-          siteMetadata {
-            menuLinks {
-              name
-              link
-            }
-          }
-        }
-      }
-    `}
-    render={data => <MenuMobile active={props.active} data={data} />}
-  />
-);
+export default MenuMobile;
