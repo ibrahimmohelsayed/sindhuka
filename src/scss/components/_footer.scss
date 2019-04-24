@@ -1,7 +1,7 @@
 .footer-strip {
-  background: $secondary;
   padding-top: 20px;
   padding-bottom: 20px;
+  box-shadow: 0 1px 15px rgba(50, 50, 93, 0.2);
 }
 .footer {
   display: flex;
@@ -14,13 +14,28 @@
     align-items: center;
   }
   .footer-title {
-    color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-family: $font-family-heading;
     margin-bottom: 10px;
     flex: 0;
     @include media-breakpoint-up(sm) {
       margin: 0;
+    }
+  }
+  .footer-logos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    img {
+      display: block;
+      max-height: 150px;
+      max-width: 150px;
+      margin: 20px auto;
+    }
+    @include media-breakpoint-up(md) {
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
     }
   }
   ul {
