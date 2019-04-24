@@ -4,7 +4,7 @@ import Call from '../../components/Call';
 import useTranslations from '../../components/useTranslations';
 
 const Contact = props => {
-  const { responsibleFarmer } = useTranslations();
+  const { responsibleFarmer, contact } = useTranslations();
   return (
     <>
       <SEO title="Contact" />
@@ -12,7 +12,7 @@ const Contact = props => {
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h1>Contact</h1>
+              <h1>{contact}</h1>
               <p>{responsibleFarmer}</p>
             </div>
           </div>

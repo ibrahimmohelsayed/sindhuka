@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import LocalizedLink from './LocalizedLink';
 import Menu from './Menu';
 import Hamburger from './Hamburger';
 import logo from '../images/sindhuka_logo.png';
@@ -24,14 +25,14 @@ class Header extends React.Component {
       <div className="header">
         <div className="container">
           <div className="logo">
-            <Link to="/">
+            <LocalizedLink to="/">
               <img alt="Sindhuka Logo" src={logo} />
-            </Link>
+            </LocalizedLink>
           </div>
           <div className="logo-mobile">
-            <Link to="/">
+            <LocalizedLink to="/">
               <img alt="Sindhuka Logo" src={logo} />
-            </Link>
+            </LocalizedLink>
           </div>
           <MenuMobile active={this.state.menuActive} />
           <Menu />

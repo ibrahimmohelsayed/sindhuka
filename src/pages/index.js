@@ -2,13 +2,21 @@ import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { join } from 'path';
 import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
 import useTranslations from '../components/useTranslations';
 
 const Index = ({ data: { allMdx, allFeaturesJson } }) => {
-  const { hello } = useTranslations();
+  const {
+    hello,
+    findOutMore,
+    readMore,
+    getStarted,
+    locations,
+    join,
+  } = useTranslations();
   return (
     <>
       <SEO title="Home" />
@@ -19,18 +27,13 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
           sustainable and environmentally friendly production models."
         />
       </Helmet>
-      <div className="intro pb-4">
+      <div className="intro py-5 mt-5">
         <div className="container">
           <h1>{hello}</h1>
-          <p>
-            Join SINDHUKA: an added value for your business, a concrete support
-            to local economy. Sindhuka is a trademark which connects local
-            vegetables, fruits and herbal plants producers aligned with
-            sustainable and environmentally friendly production models.
-          </p>
+          <p>{join}</p>
           <div className="call-box-bottom mt-4">
             <LocalizedLink to="/#get-started" className="button">
-              Find out more
+              {findOutMore}
             </LocalizedLink>
           </div>
         </div>
@@ -38,7 +41,7 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
       <div id="get-started" className="container pt-8 pt-md-10">
         <div className="row justify-content-start">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-3">Get Started</h2>
+            <h2 className="title-3 text-dark mb-3">{getStarted}</h2>
           </div>
           {allMdx.edges.map(({ node: post }) => (
             <>
@@ -54,8 +57,11 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
                       </LocalizedLink>
                     </h2>
                     <p>{post.excerpt}</p>
-                    <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
-                      Read more →
+                    <LocalizedLink
+                      className="text-secondary font-weight-bold"
+                      to={`/#${post.parent.relativeDirectory}`}
+                    >
+                      {readMore} →
                     </LocalizedLink>
                   </div>
                 </div>
@@ -93,7 +99,7 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
       <div id="locations" className="container pt-5 pb-5 pt-md-7 pb-md-7">
         <div className="row justify-content-center">
           <div className="col-12">
-            <h2 className="title-3 text-dark mb-4">Locations</h2>
+            <h2 className="title-3 text-dark mb-4">{locations}</h2>
           </div>
           {allFeaturesJson.edges.map(edge => (
             <div key={edge.node.id} className="col-12 col-md-6 col-lg-4 mb-2">
