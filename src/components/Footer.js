@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, Link, StaticQuery } from 'gatsby';
 import useTranslations from './useTranslations';
-import AICSLogo from '../images/logos/AICS_logo.png';
+import AICSLogo from '../images/logos/AICS_logo2.png';
 import ASIALogo from '../images/logos/ASIA_logo.jpg';
 import CEAPREDLogo from '../images/logos/CEAPRED_logo.png';
 import OIKOSLogo from '../images/logos/OIKOS_logo.png';
