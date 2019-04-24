@@ -30,6 +30,7 @@ const query = graphql`
           name
           translations: childTranslationsJson {
             hello
+            responsibleFarmer
           }
         }
       }
