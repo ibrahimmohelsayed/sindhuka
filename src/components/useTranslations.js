@@ -29,8 +29,16 @@ const query = graphql`
         node {
           name
           translations: childTranslationsJson {
+            home
             hello
             responsibleFarmer
+            disclaimer
+            getStarted
+            findOutMore
+            readMore
+            locations
+            contact
+            join
           }
         }
       }
