@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import Contact from '../components/Contact';
 import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
@@ -120,6 +121,7 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
           ))}
         </div>
       </div>
+      <Contact />
     </>
   );
 };

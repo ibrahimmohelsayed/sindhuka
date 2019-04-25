@@ -16,7 +16,7 @@ const MenuMobile = props => {
     },
     {
       name: `${contact}`,
-      link: '/contact',
+      link: '/#contact',
     },
   ];
 

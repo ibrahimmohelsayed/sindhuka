@@ -40,6 +40,10 @@ const query = graphql`
             contact
             join
             sindhuka
+            contactName1
+            contactName2
+            phone
+            name
           }
         }
       }

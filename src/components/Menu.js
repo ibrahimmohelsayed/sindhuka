@@ -16,7 +16,7 @@ const Menu = props => {
     },
     {
       name: `${contact}`,
-      link: '/contact',
+      link: '/#contact',
     },
   ];
   return (
