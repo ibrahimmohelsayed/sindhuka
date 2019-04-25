@@ -1,12 +1,6 @@
 const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 
 module.exports = {
-  siteMetadata: {
-    title: 'Sindhuka',
-    description: `Join SINDHUKA’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. 
-    Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
-    sustainable and environmentally friendly production models.`,
-  },
   plugins: [
     `gatsby-mdx`,
     'gatsby-plugin-sass',
