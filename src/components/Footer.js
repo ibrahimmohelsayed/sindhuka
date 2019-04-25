@@ -33,17 +33,5 @@ const Footer = props => {
     </div>
   );
 };
-export default props => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => <Footer data={data} />}
-  />
-);
+
+export default Footer;
