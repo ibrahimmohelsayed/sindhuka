@@ -13,7 +13,6 @@ const Layout = ({ bodyClass, children, pageContext: { locale } }) => (
     <SEO />
     <div className={`page${bodyClass ? ` ${bodyClass}` : ''}`}>
       <div id="wrapper" className="wrapper">
-        <h1>{locale}</h1>
         <Header />
         {children}
       </div>
