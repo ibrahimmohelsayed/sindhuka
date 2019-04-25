@@ -19,6 +19,14 @@ const MenuMobile = props => {
       link: '/contact',
     },
   ];
+
+  const handleClick = () => {
+    const element = document.querySelector('#main-menu-mobile');
+    element.classList.remove('open');
+    document
+      .querySelector('#toggle-main-menu-mobile')
+      .classList.remove('is-active');
+  };
   return (
     <div
       id="main-menu-mobile"
@@ -27,10 +35,12 @@ const MenuMobile = props => {
       <ul>
         {menuLinks.map(link => (
           <li key={link.name}>
-            <LocalizedLink to={link.link}>{link.name}</LocalizedLink>
+            <LocalizedLink onClick={handleClick} to={link.link}>
+              {link.name}
+            </LocalizedLink>
           </li>
         ))}
-        <li className="mt-5">
+        <li className="mt-5" onClick={handleClick}>
           <Link to="/" hrefLang="en">
             English
           </Link>
