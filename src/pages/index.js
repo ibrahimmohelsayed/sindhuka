@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import { join } from 'path';
 import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
@@ -12,20 +11,18 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
   const {
     hello,
     findOutMore,
+    home,
     readMore,
     getStarted,
     locations,
     join,
+    sindhuka,
   } = useTranslations();
   return (
     <>
-      <SEO title="Home" />
+      <SEO title={`${home} - ${sindhuka}`} />
       <Helmet>
-        <meta
-          name="description"
-          content="Join SINDHUKA’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
-          sustainable and environmentally friendly production models."
-        />
+        <meta name="description" content={join} />
       </Helmet>
       <div className="intro py-5 mt-5">
         <div className="container">

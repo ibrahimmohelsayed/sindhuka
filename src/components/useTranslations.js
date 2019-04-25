@@ -39,6 +39,7 @@ const query = graphql`
             locations
             contact
             join
+            sindhuka
           }
         }
       }
