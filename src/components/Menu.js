@@ -27,6 +27,15 @@ const Menu = props => {
             <LocalizedLink to={link.link}>{link.name}</LocalizedLink>
           </li>
         ))}
+        <li className="ml-5">
+          <Link to="/" hrefLang="en">
+            English
+          </Link>
+          /
+          <Link to="/ne" hrefLang="ne">
+            नेपाली
+          </Link>
+        </li>
       </ul>
     </div>
   );

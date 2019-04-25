@@ -30,6 +30,14 @@ const MenuMobile = props => {
             <LocalizedLink to={link.link}>{link.name}</LocalizedLink>
           </li>
         ))}
+        <li className="mt-5">
+          <Link to="/" hrefLang="en">
+            English
+          </Link>
+          <Link to="/ne" hrefLang="ne">
+            नेपाली
+          </Link>
+        </li>
       </ul>
     </div>
   );
