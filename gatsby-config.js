@@ -48,6 +48,15 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images/logos`,
+        name: 'logos',
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: guid || 'UA-XXX-1',
