@@ -2,13 +2,29 @@ const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 
 module.exports = {
   plugins: [
-    `gatsby-mdx`,
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 800,
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-transformer-json',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: ['gatsby-remark-copy-linked-files'],
+        plugins: [
+          `gatsby-remark-copy-images`,
+          'gatsby-remark-copy-linked-files',
+        ],
       },
     },
     'gatsby-plugin-react-helmet',
