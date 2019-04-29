@@ -20,22 +20,46 @@ const Footer = props => {
               <div className="col-12">
                 <p className="footer-title py-3">{disclaimer}</p>
                 <div className="footer-logos">
-                  <a href="https://www.aics.gov.it/language/en/">
+                  <a
+                    href="https://www.aics.gov.it/language/en/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img src={AICSLogo} alt="AICS Logo" />
                   </a>
-                  <a href="https://asia-ngo.org/">
+                  <a
+                    href="https://asia-ngo.org/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img src={ASIALogo} alt="Asia Onlus Logo" />
                   </a>
-                  <a href="https://www.ceapred.org.np/">
+                  <a
+                    href="https://www.ceapred.org.np/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img src={CEAPREDLogo} alt="CEAPRED Logo" />
                   </a>
-                  <a href="https://www.istituto-oikos.org/">
-                    <img src={OIKOSLogo} alt="Instituto Oikos Logo" />
+                  <a
+                    href="https://www.istituto-oikos.org/en"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <img src={OIKOSLogo} alt="Istituto Oikos Logo" />
                   </a>
-                  <a href="http://www.puntosud.org/">
+                  <a
+                    href="http://www.puntosud.org/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img src={PuntoSudLogo} alt="Punto Sud Logo" />
                   </a>
-                  <a href="http://kalimatimarket.gov.np/home/">
+                  <a
+                    href="http://kalimatimarket.gov.np/home/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <img
                       src={NepalLogo}
                       alt=" Government of Nepal, Ministry of Agriculture and Livestock Development Logo"
