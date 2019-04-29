@@ -52,12 +52,7 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
                     <div className="card-content">
                       <h2>{post.frontmatter.title}</h2>
                       <p>{post.excerpt}</p>
-                      <LocalizedLink
-                        className="text-secondary font-weight-bold"
-                        to={`/#${post.parent.relativeDirectory}`}
-                      >
-                        {readMore} →
-                      </LocalizedLink>
+                      <span>{readMore} →</span>
                     </div>
                   </LocalizedLink>
                 </div>
