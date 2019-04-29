@@ -48,20 +48,18 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
                 className="col-12 col-md-4 mb-5"
               >
                 <div className="card service service-teaser">
-                  <div className="card-content">
-                    <h2>
-                      <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
-                        {post.frontmatter.title}
+                  <LocalizedLink to={`/#${post.parent.relativeDirectory}`}>
+                    <div className="card-content">
+                      <h2>{post.frontmatter.title}</h2>
+                      <p>{post.excerpt}</p>
+                      <LocalizedLink
+                        className="text-secondary font-weight-bold"
+                        to={`/#${post.parent.relativeDirectory}`}
+                      >
+                        {readMore} →
                       </LocalizedLink>
-                    </h2>
-                    <p>{post.excerpt}</p>
-                    <LocalizedLink
-                      className="text-secondary font-weight-bold"
-                      to={`/#${post.parent.relativeDirectory}`}
-                    >
-                      {readMore} →
-                    </LocalizedLink>
-                  </div>
+                    </div>
+                  </LocalizedLink>
                 </div>
               </div>
             </>
