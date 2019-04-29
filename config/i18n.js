@@ -9,7 +9,7 @@ module.exports = {
     siteLanguage: `en`,
     ogLanguage: `en_US`,
     defaultTitle: `Sindhuka`,
-    defaultDescription: `Join SINDHUKA’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. 
+    defaultDescription: `Join Sindhuka’s sustainable farmers’ network: an added value for your business, a concrete support to local economy. 
     Sindhuka is a trademark which connects local vegetables, fruits and herbal plants producers aligned with
     sustainable and environmentally friendly production models.`,
   },
