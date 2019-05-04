@@ -2,6 +2,17 @@ const guid = process.env.NETLIFY_GOOGLE_ANALYTICS_ID;
 
 module.exports = {
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-copy-images`,
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
     {
       resolve: `gatsby-mdx`,
       options: {
@@ -18,15 +29,7 @@ module.exports = {
     },
     'gatsby-plugin-sass',
     'gatsby-transformer-json',
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-copy-images`,
-          'gatsby-remark-copy-linked-files',
-        ],
-      },
-    },
+
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',
@@ -70,8 +73,13 @@ module.exports = {
         name: 'logos',
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/images/home_images`,
+        name: 'homeimages',
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
