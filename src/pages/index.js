@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, withPrefix, Link } from 'gatsby';
 import Helmet from 'react-helmet';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import Img from 'gatsby-image';
 import Contact from '../components/Contact';
 import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
@@ -27,12 +28,14 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
       </Helmet>
       <div className="intro py-5 mt-5">
         <div className="container">
-          <h1>{hello}</h1>
-          <p>{join}</p>
-          <div className="call-box-bottom mt-4">
-            <LocalizedLink to="/#get-started" className="button">
-              {findOutMore}
-            </LocalizedLink>
+          <div className="col-12 text-center">
+            <h1>{hello}</h1>
+            <h4>{join}</h4>
+            <div className="call-box-bottom mt-4">
+              <LocalizedLink to="/#get-started" className="button">
+                {findOutMore}
+              </LocalizedLink>
+            </div>
           </div>
         </div>
       </div>
@@ -59,13 +62,13 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
               </div>
             </>
           ))}
-          {allMdx.edges.map(({ node: post }) => (
+          {allMdx.edges.map(({ node: post }, index) => (
             <div
               key={`${post.frontmatter.title}-${post.fields.locale}`}
               className="container pt-4 pt-md-10"
             >
-              <div className="row justify-content-start">
-                <div className="col-12 col-md-8">
+              <div className="row justify-content-start align-items-center">
+                <div className="col-12 col-md-6 px-3">
                   <div
                     id={post.parent.relativeDirectory}
                     className="service service-single"
@@ -81,6 +84,21 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
                     </MDXRenderer>
                   </div>
                 </div>
+                {index % 2 !== 0 ? (
+                  <div className="col-12 col-md-6 order-lg-first">
+                    <Img
+                      fluid={post.frontmatter.sideImage.childImageSharp.fluid}
+                      alt="Farming sustainably in Nepal"
+                    />
+                  </div>
+                ) : (
+                  <div className="col-12 col-md-6">
+                    <Img
+                      fluid={post.frontmatter.sideImage.childImageSharp.fluid}
+                      alt="Farming sustainably in Nepal"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -130,6 +148,13 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: $dateFormat)
+            sideImage {
+              childImageSharp {
+                fluid(maxWidth: 400) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
           }
           excerpt
           code {
