@@ -9,7 +9,7 @@ module.exports = {
       options: {
         plugins: [
           `gatsby-remark-copy-images`,
-          'gatsby-remark-copy-linked-files',
+          `gatsby-remark-copy-linked-files`,
         ],
       },
     },
@@ -18,7 +18,7 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
               sizeByPixelDensity: true,
@@ -27,10 +27,10 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-sass',
-    'gatsby-transformer-json',
+    `gatsby-plugin-sass`,
+    `gatsby-transformer-json`,
 
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -86,6 +86,20 @@ module.exports = {
         trackingId: guid || 'UA-XXX-1',
         // Puts tracking script in the head instead of the body
         head: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Sindhuka',
+        short_name: 'Sindhuka',
+        start_url: '/',
+        background_color: '#6b37bf',
+        theme_color: '#006844',
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: 'standalone',
+        icon: 'apple-touch-icon.png', // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-offline`,
