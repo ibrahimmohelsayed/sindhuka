@@ -8,7 +8,7 @@ import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
 import useTranslations from '../components/useTranslations';
-import SEOLogo from '../images/logos/sindhuka_logo.png';
+import SEOLogo from '../images/sindhuka_logo.png';
 
 const Index = ({ data: { allMdx, allFeaturesJson } }) => {
   const {
