@@ -8,6 +8,7 @@ import MdxLink from '../components/MDXLink';
 import LocalizedLink from '../components/LocalizedLink';
 import SEO from '../components/SEO';
 import useTranslations from '../components/useTranslations';
+import SEOLogo from '../images/logos/sindhuka_logo.png';
 
 const Index = ({ data: { allMdx, allFeaturesJson } }) => {
   const {
@@ -25,6 +26,13 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
       <SEO title={`${home} - ${sindhuka}`} />
       <Helmet>
         <meta name="description" content={join} />
+        <meta property="og:description" content={join} />
+        <meta name="twitter:description" content={join} />
+        <meta property="og:title" content={`${home} - ${sindhuka}`} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={SEOLogo} />
+        <meta property="og:image" content={SEOLogo} />
       </Helmet>
       <div className="intro py-5 mt-1">
         <div className="container">
