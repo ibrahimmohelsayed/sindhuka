@@ -28,9 +28,9 @@ const Index = ({ data: { allMdx, allFeaturesJson } }) => {
       </Helmet>
       <div className="intro py-5 mt-5">
         <div className="container">
-          <div className="col-12 text-center">
-            <h1>{hello}</h1>
-            <h4>{join}</h4>
+          <div className="jumbotron text-center">
+            <h1 className="display-4">{hello}</h1>
+            <p className="lead text-muted py-1">{join}</p>
             <div className="call-box-bottom mt-4">
               <LocalizedLink to="/#get-started" className="button">
                 {findOutMore}
