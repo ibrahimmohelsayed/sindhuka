@@ -159,7 +159,7 @@ export const query = graphql`
             sideImage {
               childImageSharp {
                 fluid(maxWidth: 400) {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }
             }
